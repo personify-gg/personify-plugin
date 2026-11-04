@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "personify": {
+      "type": "http",
+      "url": "https://personify.gg/api/mcp"
+    }
+  }
+}

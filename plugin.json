@@ -1,0 +1,88 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "personify",
+  "version": "0.1.0",
+  "description": "AI UGC reels for your brand: browse 100 viral reel formats, write hooks and scripts that fit them, plan a batch of drafts, check status, and quote a render before any credits are spent. Connects to your Personify brand (personify.gg) over OAuth.",
+  "author": {
+    "name": "Personify",
+    "email": "info@personify.gg",
+    "url": "https://personify.gg"
+  },
+  "homepage": "https://personify.gg/docs/agents",
+  "repository": "https://github.com/personify-gg/personify-plugin",
+  "license": "MIT",
+  "keywords": ["personify", "ugc", "ai video", "reels", "tiktok", "social media", "marketing", "content"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Personify",
+        "shortDescription": "AI UGC reels for your brand",
+        "longDescription": "Personify writes and produces short vertical videos for your brand in the style of creator content, with AI presenters, in 100 formats measured from reels that worked. Connect your Personify brand to plan and write that content in chat.\n\nWhat you can do:\n- Browse the Format Book: every format with its length, how it is spoken or shown on screen, the most words its script may hold, and a preview.\n- Get opening hooks and full scripts for your brand that fit a chosen format, and save them as drafts in Personify.\n- Plan a batch of reels across formats and save the ones you approve.\n- Remake a format, or one of your own finished reels, with a new angle.\n- See which drafts are waiting, which reels are rendering and which are finished, with reasons for any failure.\n- Get the review link where you check a draft's script, presenter and footage and confirm its render inside Personify.\n- List your finished reels, clips and photos, and get the file of a reel you approved.\n\nSaving a draft never generates or charges anything. This connection cannot start a render: you confirm every render yourself in Personify. One connection covers one brand, every call is logged in your Personify account, and you can revoke access at any time under Settings > AI connections.\n\nYou need a Personify account with a brand set up at personify.gg.",
+        "developerName": "Personify",
+        "category": "Productivity",
+        "websiteURL": "https://personify.gg",
+        "supportURL": "https://personify.gg/docs/agents",
+        "privacyPolicyURL": "https://personify.gg/privacy",
+        "termsOfServiceURL": "https://personify.gg/terms",
+        "defaultPrompt": [
+          "Which Personify reel formats fit my brand best?",
+          "Write five hooks for a tips reel about my product",
+          "Plan this week's reels and save the ones I approve as drafts"
+        ],
+        "brandColor": "#1F1C1B",
+        "logo": "./assets/personify.png",
+        "composerIcon": "./assets/personify.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Recommend formats for the connected brand",
+              "prompt": "Which Personify reel formats would work best for my brand? Give me three with previews.",
+              "tools_triggered": "get_brand, list_formats",
+              "expected_behavior": "Reads the demo brand and the Format Book, then recommends three formats with id, length, audio mode, word limit, a reason tied to the brand and a preview link."
+            },
+            {
+              "description": "Write a script in a format and save it as a draft",
+              "prompt": "Write a Tips & lists reel script for my brand and save it as a draft in Personify.",
+              "tools_triggered": "get_brand, list_formats, create_draft",
+              "expected_behavior": "Shows a script inside the format's word and line limits, saves it after the user approves, and returns the draft with status draft. Nothing is generated or charged."
+            },
+            {
+              "description": "Report the status of recent videos",
+              "prompt": "What is the status of my Personify videos?",
+              "tools_triggered": "list_videos",
+              "expected_behavior": "Groups the demo account's videos into drafts, rendering, finished and failed, with titles and ids and the customer message for any failure."
+            },
+            {
+              "description": "Hand the owner the review link for a draft",
+              "prompt": "Give me the review link for my newest Personify draft.",
+              "tools_triggered": "list_videos, prepare_generation_approval",
+              "expected_behavior": "Finds the newest draft and returns its personify.gg review link, explaining that the render starts only when the owner confirms it in Personify."
+            },
+            {
+              "description": "List finished reels and get a download link",
+              "prompt": "List my finished Personify reels and get the download link for the newest one.",
+              "tools_triggered": "list_assets, get_video_download",
+              "expected_behavior": "Lists the demo brand's finished reels with number, title, format and length, then returns a one-hour download link for the newest approved reel."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Publishing is not available",
+              "prompt": "Post my latest reel to Instagram now."
+            },
+            {
+              "description": "Billing is not available",
+              "prompt": "Buy more Personify credits for me."
+            },
+            {
+              "description": "Unrelated request",
+              "prompt": "What is the weather in Sydney tomorrow?"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

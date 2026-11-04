@@ -1,0 +1,29 @@
+{
+  "name": "personify",
+  "displayName": "Personify",
+  "version": "0.1.0",
+  "description": "AI UGC reels for your brand from Claude: browse 100 viral reel formats, write hooks and scripts that fit them, plan a batch of drafts, check status, and quote a render before any credits are spent. Connects to your Personify brand (personify.gg) over OAuth.",
+  "author": {
+    "name": "Personify",
+    "email": "info@personify.gg",
+    "url": "https://personify.gg"
+  },
+  "homepage": "https://personify.gg/docs/agents",
+  "repository": "https://github.com/personify-gg/personify-plugin",
+  "license": "MIT",
+  "keywords": [
+    "personify",
+    "ugc",
+    "ai video",
+    "reels",
+    "tiktok",
+    "social media",
+    "marketing",
+    "content"
+  ],
+  "icon": "./assets/personify.png",
+  "documentationUrl": "https://personify.gg/docs/mcp",
+  "supportUrl": "https://personify.gg/docs/agents",
+  "privacyPolicyUrl": "https://personify.gg/privacy",
+  "termsOfServiceUrl": "https://personify.gg/terms"
+}

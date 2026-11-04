@@ -1,0 +1,16 @@
+{
+  "name": "personify",
+  "description": "The Personify plugin for Claude: AI UGC reels for your brand.",
+  "owner": {
+    "name": "Personify",
+    "email": "info@personify.gg",
+    "url": "https://personify.gg"
+  },
+  "plugins": [
+    {
+      "name": "personify",
+      "source": "./",
+      "description": "Browse 100 viral reel formats, write hooks and scripts, plan drafts and quote renders for your Personify brand."
+    }
+  ]
+}
