@@ -61,10 +61,10 @@
               "expected_behavior": "Finds the newest draft and returns its personify.gg review link, explaining that the render starts only when the owner confirms it in Personify."
             },
             {
-              "description": "List finished reels and get a download link",
-              "prompt": "List my finished Personify reels and get the download link for the newest one.",
-              "tools_triggered": "list_assets, get_video_download",
-              "expected_behavior": "Lists the demo brand's finished reels with number, title, format and length, then returns a one-hour download link for the newest approved reel."
+              "description": "Write hooks that fit a format",
+              "prompt": "Write five opening hooks for a Personify tips reel about my brand.",
+              "tools_triggered": "get_brand, list_formats",
+              "expected_behavior": "Reads the demo brand and the Format Book, picks a Tips & lists format, and returns five hooks inside that format's word limit that use only the brand's own facts. Nothing is saved."
             }
           ],
           "negative": [
