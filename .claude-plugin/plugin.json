@@ -1,7 +1,7 @@
 {
   "name": "personify",
   "displayName": "Personify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AI UGC reels for your brand from Claude: browse 100 viral reel formats, write hooks and scripts that fit them, plan a batch of drafts, check status, and quote a render before any credits are spent. Connects to your Personify brand (personify.gg) over OAuth.",
   "author": {
     "name": "Personify",

@@ -31,6 +31,6 @@ A Personify connection can spend credits only when the owner approved the separa
 
 - In Claude Code, add a second connection that asks for it, then run `/mcp` to sign in:
   `claude mcp add-json personify-render '{"type":"http","url":"https://personify.gg/api/mcp","oauth":{"scopes":"brand:read assets:read videos:read drafts:write videos:render"}}'`
-- Or use the Personify CLI: `npx personify-cli@0.1.0 login --allow-render`, then `personify render <id>` for the quote and `personify render <id> --confirm-paid` to start it.
+- Or use the Personify CLI: `npm install -g personify-cli`, then `personify login --allow-render`, then `personify render <id>` for the quote and `personify render <id> --confirm-paid` to start it. (Without a global install, write `npx personify-cli` in place of `personify` each time.)
 
 Owners can revoke any connection under Settings > AI connections in Personify.
